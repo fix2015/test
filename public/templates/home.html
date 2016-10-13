@@ -1,0 +1,21 @@
+<h1>github</h1>
+<h1></h1>
+<div>
+    <ul infinite-scroll='load.loadMore()' infinite-scroll-distance='1' infinite-scroll-disabled='load.busy'>
+        <li ng-repeat='repo in repository'>
+            <div class="repoData">
+                <div class="linkData">
+                    <p><a hre="{{repo.html_url}}"><b>Name:</b> {{repo.name}}</a></p>
+                    <p><span><b>Description:</b> {{repo.description}}</span></p>
+                    <p><span><b>Link:</b> <a href="{{repo.html_url}}">{{repo.html_url}}</a></span></p>
+                </div>
+                <button ng-if="repo.fork" ng-click="getParentData(repo.full_name)">Get Parent Data</button>
+                <ul class="parentData" ng-if="repo.parent">
+                    <span><b>Name:</b> {{repo.parent.name}}</span>
+                    <span><b>Link:</b> <a href="{{repo.parent.html_url}}">{{repo.parent.html_url}}</a></span>
+                </ul>
+                <hr/>
+            </div>
+        </li>
+    </ul>
+</div>
